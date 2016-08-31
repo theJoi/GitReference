@@ -30,8 +30,7 @@
                 <th>Command Name</th>
                 <th>Command Type</th>
                 <th>Short Description</th>
-                <th>Applicable Flags</th>
-                <th>Reference</th>
+                <th>Flags</th>
                 </tr>
             </thead>
             <tr ng-repeat="command in commands" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
@@ -39,12 +38,14 @@
                 <td>{{command.type}}</td>
                 <td>{{command.description}}</td>
                 <td>{{command.flags}}</td>
-                <td nowrap><a href="{{command.reference}}" target="_blank">{{command.reference}}</a></td>
             </tr>
         </table>
 
         <div class="description">
-        <h3>{{title}}</h3>{{longDescription}}</div>
+        <h3>{{pickedCommand.title}}</h3>
+            <p>{{pickedCommand.longDescription}}</p>
+            <p>{{pickedCommand.reference}}<a href="{{pickedCommand.link}}" target="_blank">{{pickedCommand.link}}</a></p>
+            </div>
     </div>
 
 </body>

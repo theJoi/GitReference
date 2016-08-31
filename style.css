@@ -58,11 +58,11 @@ tr {
   border-top: 1px solid rgba(207, 216, 220, 0.2);
 }
 tr:hover:not(.head):not(.active) {
-  background: #ffeb3b;
+  background: #cfd8dc;
   cursor: pointer;
 }
 tr.active {
-  background: #cfd8dc;
+  background: rgba(255, 235, 59, 0.5);
 }
 input,
 input:focus,

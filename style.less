@@ -80,7 +80,7 @@ tr {
     border-top: 1px solid @dividerColor;
     &:hover:not(.head) {
         &:not(.active){
-            background: @accentColor;
+             background: @lightPrimaryColor;
             cursor: pointer;
         }
 
@@ -88,7 +88,7 @@ tr {
 }
 
 tr.active {
-    background: @lightPrimaryColor;
+    background: fadeout(@accentColor,50%);
 }
 
 input, input:focus, input:active {
