@@ -7,21 +7,29 @@
 @accentColor:        #FFEB3B;
 @primaryTextColor:   #212121;
 @secondaryTextColor: #757575;
-@dividerColor:       #BDBDBD;
+@dividerColor:       fadeout(@lightPrimaryColor, 80%);
 
 
 /* BASE */
-
+* {
+    box-sizing: border-box;
+}
 a {
     text-decoration: none;
     color: inherit;
+    &:hover {
+        color: @accentColor;
+    }
 }
+
 
 body {
     font-family: 'Roboto', sans-serif;
     color: @darkPrimaryColor;
     margin: 0;
-    paddin: 0;
+    padding: 0;
+    background: @lightPrimaryColor;
+
 }
 /* DIVS */
 
@@ -38,4 +46,84 @@ body {
 #MENU {
     background: @darkPrimaryColor;
     color: @textPrimaryColor;
+
+
+}
+
+#MAIN {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-bottom: 0;
+    background: white;
+}
+
+table {
+
+    //table-layout: fixed;
+    width: 80%;
+    padding: 10px;
+    border-collapse: collapse;
+    height: 100%;
+}
+
+thead {
+    text-align: left;
+}
+
+td, th {
+    padding: 10px;
+}
+
+tr {
+    border-top: 1px solid @dividerColor;
+    &:hover:not(.head) {
+        &:not(.active){
+            background: @accentColor;
+        }
+
+    }
+}
+
+tr.active {
+    background: @lightPrimaryColor;
+}
+
+input, input:focus, input:active {
+    border: 0 solid white;
+    outline: none;
+        &::placeholder {
+        color: black;
+    }
+
+}
+.description {
+    width: 20%;
+    padding: 20px;
+}
+
+.search {
+    flex: 1 0 100%;
+font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid @primaryColor;
+    background: @dividerColor;
+
+}
+
+.search > input {
+        width: 100%;
+        padding: 10px;
+    font-size: 1.3em;
+     background: rgba(0,0,0,0);
+
+
+}
+
+.description, table {
+border-color: @primaryColor;
+  border-style: solid;
+  border-width: 0 0 1px 1px;
 }

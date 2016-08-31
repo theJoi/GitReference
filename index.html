@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Jois Git Reference</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+    <script id="data" type="text/javascript" src="reference.js"></script>
+    <script src="index.js"></script>
+
 </head>
-<body>
+
+<body ng-app='gitref'>
 
     <div id="HEADER">Joi's Git Reference</div>
     <div id="MENU">MENU</div>
-    <div id="MAIN">
-        <div class="search"></div>
-        <table></table>
+    <div id="MAIN" ng-controller="GitRefController">
+
+        <div class="search"><i class="material-icons">search</i><input type="text" placeholder="search"></div>
+
+        <table>
+            <thead>
+               <tr class="head">
+                <th>Command Name</th>
+                <th>Command Type</th>
+                <th>Short Description</th>
+                <th>Applicable Flags</th>
+                <th>Reference</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="command in commands" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
+                <td>{{command.name}}</td>
+                <td>{{command.type}}</td>
+                <td>{{command.description}}</td>
+                <td>{{command.flags}}</td>
+                <td nowrap><a href="{{command.reference}}" targe="_blank">{{command.reference}}</a></td>
+            </tr>
+        </table>
+
+        <div class="description">
+        <h3>{{title}}</h3>{{longDescription}}</div>
     </div>
+
 </body>
+
 </html>
