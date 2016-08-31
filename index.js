@@ -7,7 +7,7 @@ app.controller("GitRefController", function($scope,$http) {
     $scope.commands = commandData;
 
     $scope.title = "";
-    $scope.longDescription = "Select a git command to see a full description with examples.";
+    $scope.longDescription = "Select a git command from the list to the left to see a full description with examples.";
     $scope.activeCommand = "";
 
     $scope.displayDesc = function(command){
