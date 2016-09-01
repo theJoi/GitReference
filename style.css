@@ -14,24 +14,30 @@ a:hover {
 body {
   font-family: 'Roboto', sans-serif;
   color: #455a64;
+  font-weight: 300;
   margin: 0;
   padding: 0;
   background: #cfd8dc;
 }
+code {
+  font-family: 'Roboto Mono', monospace;
+}
 /* DIVS */
 #HEADER,
 #MENU {
-  padding: 20px;
   color: #ffffff;
 }
 #HEADER {
   background: #607d8b;
-  font-weight: 700;
+  padding: 20px;
+}
+.title {
   font-size: 3em;
 }
 #MENU {
   background: #455a64;
   color: #ffffff;
+  padding: 10px;
 }
 #MAIN {
   display: flex;
@@ -42,7 +48,8 @@ body {
   background: white;
 }
 table {
-  width: 80%;
+  table-layout: fixed;
+  width: 70%;
   padding: 10px;
   border-collapse: collapse;
   height: 100%;
@@ -50,9 +57,18 @@ table {
 thead {
   text-align: left;
 }
+th {
+  font-weight: 400;
+}
 td,
 th {
   padding: 10px;
+}
+th:nth-of-type(1) {
+  width: 50px;
+}
+th:nth-of-type(2) {
+  width: 145px;
 }
 tr {
   border-top: 1px solid rgba(207, 216, 220, 0.2);
@@ -76,7 +92,7 @@ input:active::placeholder {
   color: black;
 }
 .description {
-  width: 20%;
+  width: 30%;
   padding: 20px;
 }
 .search {
@@ -84,8 +100,10 @@ input:active::placeholder {
   font-size: 1.3em;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #607d8b;
+  border-color: #cfd8dc;
+  border-width: 1px 0;
   background: rgba(207, 216, 220, 0.2);
+  border-style: solid;
 }
 .search > input {
   width: 100%;
@@ -95,7 +113,7 @@ input:active::placeholder {
 }
 .description,
 table {
-  border-color: #607d8b;
+  border-color: #cfd8dc;
   border-style: solid;
   border-width: 0 0 1px 1px;
 }
