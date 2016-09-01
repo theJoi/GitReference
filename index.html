@@ -13,16 +13,18 @@
 
     <script id="data" type="text/javascript" src="assets/reference.js"></script>
     <script id="data" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+    <script id="data" type="text/javascript" src="assets/tips.js"></script>
     <script src="index.js"></script>
 
 </head>
 
-<body ng-app='gitref'>
+<body ng-app='gitref' ng-controller="GitRefController">
 
     <div id="HEADER"><span class="title">Joi's Git Reference</span>
-        <br><code>A prettified searchable git --help</code></div>
+        <br><code>A prettified searchable git --help</code>
+        <span class="header-tip">TIP: {{randomTip}}</span></div>
     <div id="MENU">MENU</div>
-    <div id="MAIN" ng-controller="GitRefController">
+    <div id="MAIN" >
 
         <div class="search"><i class="material-icons">search</i>
             <input type="text" placeholder="search">

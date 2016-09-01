@@ -1,7 +1,7 @@
 /*jshint undef: false, browser: true*/
 var app = angular.module("gitref", ['ngSanitize']);
 
-app.controller("GitRefController", function($scope,$http,$sce) {
+app.controller("GitRefController", function($scope,$http,$sce,$interval) {
 
     console.log("git ref controller connected.");
     $scope.commands = commandData;
@@ -9,6 +9,8 @@ app.controller("GitRefController", function($scope,$http,$sce) {
     $scope.pickedCommand.title = "";
     $scope.pickedCommand.long = "Select a git command from the list to the left to see a full description with examples.";
     $scope.activeCommand = "";
+    $scope.randomTip = "";
+
 
     $scope.displayDesc = function(command){
         $scope.activeCommand = command;
@@ -22,4 +24,16 @@ app.controller("GitRefController", function($scope,$http,$sce) {
         $scope.pickedCommand.reference = "See reference for more info about this command: ";
         $scope.pickedCommand.link =  $scope.commands[command].reference;
     };
+
+    $scope.getRandomTip = function(){
+        var n = tips.length;
+        var i = Math.floor(Math.random() * n);
+        $scope.randomTip = tips[i];
+        console.log(tips);
+        console.log(i);
+        console.log($scope.randomTip);
+
+    };
+
+    $scope.getRandomTip();
 });
