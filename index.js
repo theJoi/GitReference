@@ -1,7 +1,7 @@
 /*jshint undef: false, browser: true*/
-var app = angular.module("gitref", []);
+var app = angular.module("gitref", ['ngSanitize']);
 
-app.controller("GitRefController", function($scope,$http) {
+app.controller("GitRefController", function($scope,$http,$sce) {
 
     console.log("git ref controller connected.");
     $scope.commands = commandData;
@@ -12,7 +12,7 @@ app.controller("GitRefController", function($scope,$http) {
 
     $scope.displayDesc = function(command){
         $scope.pickedCommand.title = command;
-        $scope.pickedCommand.longDescription = $scope.commands[command]['description'];
+        $scope.pickedCommand.longDescription = $sce.trustAsHtml($scope.commands[command]['description']);
         $scope.activeCommand = command;
         $scope.pickedCommand.reference = "For more info about this command: ";
         $scope.pickedCommand.link =  $scope.commands[command]['reference'];

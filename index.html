@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 
     <script id="data" type="text/javascript" src="reference.js"></script>
+    <script id="data" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
     <script src="index.js"></script>
 
 </head>
@@ -46,7 +47,7 @@
 
         <div class="description">
         <h2>{{pickedCommand.title}}</h2>
-            <p>{{pickedCommand.longDescription}}</p>
+           <p ng-bind-html="pickedCommand.longDescription"></p>
             <p>{{pickedCommand.reference}}<br>
                 <strong><a href="{{pickedCommand.link}}" target="_blank">{{pickedCommand.link}}</a></strong></p>
             </div>
