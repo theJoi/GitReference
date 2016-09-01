@@ -9,6 +9,7 @@
 @secondaryTextColor: desaturate(@darkPrimaryColor, 50%);
 @dividerColor: fadeout(@lightPrimaryColor, 80%);
 
+
 /* BASE */
 
 * {
@@ -43,39 +44,7 @@ bold {
 }
 
 
-/* DIVS */
-
-#HEADER,
-#MENU {
-    color: @textPrimaryColor;
-}
-
-#HEADER {
-    background: @primaryColor;
-    padding: 20px;
-}
-
-.title {
-    font-size: 3em;
-}
-
-#MENU {
-    background: @darkPrimaryColor;
-    color: @textPrimaryColor;
-    padding: 10px;
-}
-
-#MAIN {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    align-items: stretch;
-    margin-bottom: 0;
-    background: white;
-    position: absolute;
-    TOP: 155PX;
-    bottom: 0px;
-}
+/* TABLES & INPUTS */
 
 table {
     table-layout: fixed;
@@ -130,13 +99,42 @@ input:active {
     }
 }
 
-.description {
-    width: 35%;
-    padding: 20px 20px 50px 20px;
-    overflow-y: scroll;
-    height: 100%;
-    line-height: 1.5em;
+
+/* DIVS */
+
+#HEADER,
+#MENU {
+    color: @textPrimaryColor;
 }
+
+#HEADER {
+    background: @primaryColor;
+    padding: 20px;
+    & .title {
+        font-size: 3em;
+    }
+}
+
+#MENU {
+    background: @darkPrimaryColor;
+    color: @textPrimaryColor;
+    padding: 10px;
+}
+
+#MAIN {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-bottom: 0;
+    background: white;
+    position: absolute;
+    TOP: 155PX;
+    bottom: 0px;
+}
+
+
+/* MAIN CONTAINER ELEMENTS */
 
 .search {
     flex: 1 0 100%;
@@ -163,7 +161,18 @@ table {
     border-width: 0 0 1px 1px;
 }
 
-.code-example {
+
+/* DESCRIPTION CONTAINER ELEMENTS */
+
+.description {
+    width: 35%;
+    padding: 20px 20px 50px 20px;
+    overflow-y: scroll;
+    height: 100%;
+    line-height: 1.5em;
+}
+
+.example-code {
     background: @dividerColor;
     width: 100%;
     display: block;
@@ -175,9 +184,17 @@ table {
     color: black;
 }
 
+.example-title,
+.example-flag {
+    width: 49%;
+    display: inline-block;
+}
+
+.example-title {
+    font-weight: 700;
+}
 .example-flag {
     font-weight: 400;
     font-family: 'Roboto Mono', monospace;
     text-align: right;
-
 }

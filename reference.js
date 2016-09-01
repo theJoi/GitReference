@@ -43,7 +43,7 @@ var commandData = {
 
     }, {
                 "title": "<command_name>",
-                "flags": "<command_name>",
+                "flags": "",
                 "desc": "list info for a particular command",
                 "code": "git help clone"
 
