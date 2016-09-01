@@ -1,19 +1,20 @@
 /* COLORS */
 
-@darkPrimaryColor:   #455A64;
-@primaryColor:       #607D8B;
-@lightPrimaryColor:  #CFD8DC;
-@textPrimaryColor:   #FFFFFF;
-@accentColor:        #FFEB3B;
-@primaryTextColor:   #212121;
-@secondaryTextColor: #757575;
-@dividerColor:       fadeout(@lightPrimaryColor, 80%);
-
+@darkPrimaryColor: #455A64;
+@primaryColor: #607D8B;
+@lightPrimaryColor: #CFD8DC;
+@textPrimaryColor: #FFFFFF;
+@accentColor: #FFEB3B;
+@primaryTextColor: #212121;
+@secondaryTextColor: desaturate(@darkPrimaryColor, 50%);
+@dividerColor: fadeout(@lightPrimaryColor, 80%);
 
 /* BASE */
+
 * {
     box-sizing: border-box;
 }
+
 a {
     text-decoration: none;
     color: inherit;
@@ -22,44 +23,46 @@ a {
     }
 }
 
-
 body {
     font-family: 'Roboto', sans-serif;
-    color: @primaryColor;
+    color: @darkPrimaryColor;
     font-weight: 300;
     margin: 0;
     padding: 0;
-    background: @lightPrimaryColor;
+    background: @primaryColor;
     overflow: hidden;
-
 }
 
 code {
     font-family: 'Roboto Mono', monospace;
 }
 
-strong, bold {
+strong,
+bold {
     font-weight: 700;
 }
+
+
 /* DIVS */
 
-#HEADER, #MENU {
+#HEADER,
+#MENU {
     color: @textPrimaryColor;
 }
+
 #HEADER {
     background: @primaryColor;
-
     padding: 20px;
 }
 
 .title {
-        font-size: 3em;
+    font-size: 3em;
 }
+
 #MENU {
     background: @darkPrimaryColor;
     color: @textPrimaryColor;
     padding: 10px;
-
 }
 
 #MAIN {
@@ -70,91 +73,94 @@ strong, bold {
     margin-bottom: 0;
     background: white;
     position: absolute;
-        TOP: 155PX;
-    bottom: 10px;
+    TOP: 155PX;
+    bottom: 0px;
 }
 
 table {
-
     table-layout: fixed;
-    width: 70%;
+    width: 65%;
     padding: 10px;
     border-collapse: collapse;
 }
 
-
 thead {
     text-align: left;
 }
+
 th {
     font-weight: 400;
 }
-td, th {
+
+td,
+th {
     padding: 10px;
 }
 
-th:nth-of-type(1){
+th:nth-of-type(1) {
     width: 50px;
 }
 
-th:nth-of-type(2){
+th:nth-of-type(2),
+th:nth-of-type(3) {
     width: 150px;
 }
+
 tr {
     border-top: 1px solid @dividerColor;
     &:hover:not(.head) {
-        &:not(.active){
-             background: @lightPrimaryColor;
+        &:not(.active) {
+            background: @lightPrimaryColor;
             cursor: pointer;
         }
-
     }
 }
 
 tr.active {
-    background: fadeout(@accentColor,50%);
+    background: fadeout(@accentColor, 50%);
 }
 
-input, input:focus, input:active {
+input,
+input:focus,
+input:active {
     border: 0 solid white;
     outline: none;
-        &::placeholder {
+    &::placeholder {
         color: black;
     }
-
 }
+
 .description {
-    width: 30%;
-    padding: 20px;
-    overflow-y:scroll;
+    width: 35%;
+    padding: 20px 20px 50px 20px;
+    overflow-y: scroll;
     height: 100%;
+    line-height: 1.5em;
 }
 
 .search {
     flex: 1 0 100%;
-font-size: 1.3em;
+    font-size: 1.3em;
     display: flex;
     align-items: center;
     border-color: @lightPrimaryColor;
     border-width: 1px 0;
     background: @dividerColor;
     border-style: solid;
-
 }
 
 .search > input {
-        width: 100%;
-        padding: 10px;
+    width: 100%;
+    padding: 10px;
     font-size: 1.3em;
-     background: rgba(0,0,0,0);
-
-
+    background: rgba(0, 0, 0, 0);
 }
 
-.description, table {
-border-color: @lightPrimaryColor;
-  border-style: solid;
-  border-width: 0 0 1px 1px;
+.description,
+table {
+    border-color: @lightPrimaryColor;
+    border-style: solid;
+    border-width: 0 0 1px 1px;
 }
 
 .code-example {
@@ -162,5 +168,16 @@ border-color: @lightPrimaryColor;
     width: 100%;
     display: block;
     padding: 3px;
+    font-size: 0.8em;
+}
+
+.description code {
+    color: black;
+}
+
+.example-flag {
+    font-weight: 400;
+    font-family: 'Roboto Mono', monospace;
+    text-align: right;
 
 }

@@ -15,7 +15,7 @@ app.controller("GitRefController", function($scope,$http,$sce) {
         $scope.pickedCommand.title = command;
         $scope.pickedCommand.long = $sce.trustAsHtml($scope.commands[command].long);
         $scope.pickedCommand.examples = $scope.commands[command].examples;
-        $scope.pickedCommand.reference = "For more info about this command: ";
+        $scope.pickedCommand.reference = "See reference for more info about this command: ";
         $scope.pickedCommand.link =  $scope.commands[command].reference;
     };
 });

@@ -6,9 +6,8 @@
     <title>Jois Git Reference</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,400i,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,400i,500" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 
@@ -20,24 +19,27 @@
 
 <body ng-app='gitref'>
 
-    <div id="HEADER"><span class="title">Joi's Git Reference</span><br><code>A prettified searchable git --help</code></div>
+    <div id="HEADER"><span class="title">Joi's Git Reference</span>
+        <br><code>A prettified searchable git --help</code></div>
     <div id="MENU">MENU</div>
     <div id="MAIN" ng-controller="GitRefController">
 
-        <div class="search"><i class="material-icons">search</i><input type="text" placeholder="search"></div>
+        <div class="search"><i class="material-icons">search</i>
+            <input type="text" placeholder="search">
+        </div>
 
         <table>
             <thead>
-               <tr class="head">
-               <th></th>
-                <th>Command Name</th>
-                <th>Category</th>
-                <th>Short Description</th>
-                <th>Flags</th>
+                <tr class="head">
+                    <th><i class="material-icons">favorite_border</i></th>
+                    <th>Command Name</th>
+                    <th>Category</th>
+                    <th>Short Description</th>
+                    <th>Favorite Flags</th>
                 </tr>
             </thead>
             <tr ng-repeat="command in commands" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
-               <td><span ng-show="command.fav"><i class="material-icons">favorite</i></span></td>
+                <td><span ng-show="command.fav"><i class="material-icons">favorite</i></span></td>
                 <td>{{command.name}}</td>
                 <td>{{command.type}}</td>
                 <td>{{command.short}}</td>
@@ -46,16 +48,20 @@
         </table>
 
         <div class="description">
-        <h2>{{pickedCommand.title}}</h2>
-           <p ng-bind-html="pickedCommand.long"></p>
-           <p ng-repeat="example in pickedCommand.examples">
+            <h2>{{pickedCommand.title}}</h2>
+            <p ng-bind-html="pickedCommand.long"></p>
+            <p ng-repeat="example in pickedCommand.examples track by $index">
 
-               <strong>{{example.title}}</strong>{{example.flags}}: {{example.desc}}<br>
-               <code class="code-example">{{example.code}}</code>
-           </p>
-            <p>{{pickedCommand.reference}}<br>
+                <strong>{{example.title}}</strong>
+                <span class="example-flag">{{example.flags}}</span><br>{{example.desc}}
+                <br>
+                <code class="code-example">{{example.code}}</code>
+                <br>
+            </p>
+            <p>{{pickedCommand.reference}}
+                <br>
                 <strong><a href="{{pickedCommand.link}}" target="_blank">{{pickedCommand.link}}</a></strong></p>
-            </div>
+        </div>
     </div>
 
 </body>
