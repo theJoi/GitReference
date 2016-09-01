@@ -31,7 +31,7 @@
                <tr class="head">
                <th></th>
                 <th>Command Name</th>
-                <th>Command Type</th>
+                <th>Category</th>
                 <th>Short Description</th>
                 <th>Flags</th>
                 </tr>
@@ -40,14 +40,19 @@
                <td><span ng-show="command.fav"><i class="material-icons">favorite</i></span></td>
                 <td>{{command.name}}</td>
                 <td>{{command.type}}</td>
-                <td>{{command.description}}</td>
+                <td>{{command.short}}</td>
                 <td>{{command.flags}}</td>
             </tr>
         </table>
 
         <div class="description">
         <h2>{{pickedCommand.title}}</h2>
-           <p ng-bind-html="pickedCommand.longDescription"></p>
+           <p ng-bind-html="pickedCommand.long"></p>
+           <p ng-repeat="example in pickedCommand.examples">
+
+               <strong>{{example.title}}</strong>{{example.flags}}: {{example.desc}}<br>
+               <code class="code-example">{{example.code}}</code>
+           </p>
             <p>{{pickedCommand.reference}}<br>
                 <strong><a href="{{pickedCommand.link}}" target="_blank">{{pickedCommand.link}}</a></strong></p>
             </div>
