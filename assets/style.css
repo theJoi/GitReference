@@ -135,22 +135,24 @@ table {
   background: rgba(207, 216, 220, 0.2);
   width: 100%;
   display: block;
-  padding: 3px;
+  padding: 5px;
   font-size: 0.8em;
+  margin: 5px 0 40px 0;
 }
 .description code {
   color: black;
 }
 .example-title,
 .example-flag {
-  width: 49%;
   display: inline-block;
 }
 .example-title {
   font-weight: 700;
+  width: 29%;
 }
 .example-flag {
   font-weight: 400;
   font-family: 'Roboto Mono', monospace;
   text-align: right;
+  width: 70%;
 }

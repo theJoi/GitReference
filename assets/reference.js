@@ -106,7 +106,7 @@ var commandData = {
             {
                 "title": "BARE",
                 "flags": "--bare",
-                "desc": "Make your cloned repo a bare repo. Check out this article if you're not sure what a bare repo is: <a href=\"http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/\">What is a bare git repository?</a>",
+                "desc": "Make your cloned repo a bare repo. Check out this article if you're not sure what a bare repo is: <a href='http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository'>What is a bare git repository?</a>",
                 "code": "git clone --bare my_project my_project.git"
     },
             {
@@ -136,10 +136,7 @@ var commandData = {
             {
                 "title": "BRANCH",
                 "flags": "--branch [name], -b [name]",
-                "desc": [
-        "Instead of having the HEAD point to the same branch as the cloned repo",
-        "pick your branch. If that branch doesn't exist it will create it."
-      ],
+                "desc": "Instead of having the HEAD point to the same branch as the cloned repo, pick your branch. If that branch doesn't exist git will create it.",
                 "code": "git clone -b git://Public/publicRepo myRepo -b myBranch"
     }]
     },

@@ -50,14 +50,12 @@
         <div class="description">
             <h2>{{pickedCommand.title}}</h2>
             <p ng-bind-html="pickedCommand.long"></p>
-            <p ng-repeat="example in pickedCommand.examples track by $index">
-
+            <div ng-repeat="example in pickedCommand.examples track by $index">
                 <span class="example-title">{{example.title}}</span>
-                <span class="example-flag">{{example.flags}}</span><br>{{example.desc}}
-                <br>
+                <span class="example-flag">{{example.flags}}</span>
+                <span ng-bind-html="example.desc"></span>
                 <code class="example-code">{{example.code}}</code>
-                <br>
-            </p>
+            </div>
             <p>{{pickedCommand.reference}}
                 <br>
                 <strong><a href="{{pickedCommand.link}}" target="_blank">{{pickedCommand.link}}</a></strong></p>
