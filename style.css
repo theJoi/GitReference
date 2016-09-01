@@ -13,11 +13,12 @@ a:hover {
 }
 body {
   font-family: 'Roboto', sans-serif;
-  color: #455a64;
+  color: #607d8b;
   font-weight: 300;
   margin: 0;
   padding: 0;
   background: #cfd8dc;
+  overflow: hidden;
 }
 code {
   font-family: 'Roboto Mono', monospace;
@@ -50,13 +51,15 @@ bold {
   align-items: stretch;
   margin-bottom: 0;
   background: white;
+  position: absolute;
+  TOP: 155PX;
+  bottom: 10px;
 }
 table {
   table-layout: fixed;
   width: 70%;
   padding: 10px;
   border-collapse: collapse;
-  height: 100%;
 }
 thead {
   text-align: left;
@@ -98,6 +101,8 @@ input:active::placeholder {
 .description {
   width: 30%;
   padding: 20px;
+  overflow-y: scroll;
+  height: 100%;
 }
 .search {
   flex: 1 0 100%;

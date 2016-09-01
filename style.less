@@ -25,11 +25,12 @@ a {
 
 body {
     font-family: 'Roboto', sans-serif;
-    color: @darkPrimaryColor;
+    color: @primaryColor;
     font-weight: 300;
     margin: 0;
     padding: 0;
     background: @lightPrimaryColor;
+    overflow: hidden;
 
 }
 
@@ -68,6 +69,9 @@ strong, bold {
     align-items: stretch;
     margin-bottom: 0;
     background: white;
+    position: absolute;
+        TOP: 155PX;
+    bottom: 10px;
 }
 
 table {
@@ -76,7 +80,6 @@ table {
     width: 70%;
     padding: 10px;
     border-collapse: collapse;
-    height: 100%;
 }
 
 
@@ -123,6 +126,8 @@ input, input:focus, input:active {
 .description {
     width: 30%;
     padding: 20px;
+    overflow-y:scroll;
+    height: 100%;
 }
 
 .search {
