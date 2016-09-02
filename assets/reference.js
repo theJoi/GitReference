@@ -375,5 +375,6 @@ var tips = [
 "Fear of COMMITment will always bit you in the bum later.",
 "Oh push it, push it real good.",
 "Always fetch before you push.",
-"Sometimes you make a change and commit, then immediately realize you forgot something or made a typo. If unpushed, you can simply fix it and AMEND it to the last commit."];
+"Sometimes you make a change and commit, then immediately realize you forgot something or made a typo. If unpushed, you can simply fix it and AMEND it to the last commit.",
+"Merge carefully, my friend."];
 

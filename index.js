@@ -5,31 +5,32 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     console.log("git ref controller connected.");
     $scope.commands = commandData;
+    $scope.examples = exampleData;
     $scope.pickedCommand = {
         title: "",
-            long: "Select a git command from the list to the left to see a full description with examples."
+        long: "Select a git command from the list to the left to see a full description with examples."
     };
     $scope.activeCommand = "";
     $scope.randomTip = "";
 
     $scope.filter = {
-        fav: "",
-        favOption: "",
-        order: "none",
-        filter: false
+        favOption: ""  // Show only favs; true for yes, blank for no
     };
 
 
     $scope.displayDesc = function (command) {
+        console.log("picked command is: " + command);
         $scope.activeCommand = command;
         $scope.pickedCommand.title = command;
         $scope.pickedCommand.long = $sce.trustAsHtml($scope.commands[command].long);
         /* Get examples */
-        if (exampleData[command]) {
+        if ($scope.examples[command]) {
             $scope.pickedCommand.examples = exampleData[command].examples;
             for (var i = 0; i < $scope.pickedCommand.examples.length; i++) {
                 $scope.pickedCommand.examples[i].desc = $sce.trustAsHtml($scope.pickedCommand.examples[i].desc);
             }
+        } else {
+            $scope.pickedCommand.examples = "";
         }
         $scope.pickedCommand.reference = "See reference for more info about this command: ";
         $scope.pickedCommand.link = $scope.commands[command].reference;
@@ -48,12 +49,6 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
             $scope.filter.favOption = true;
         } else {
             $scope.filter.favOption = "";
-        }
-    };
-
-    $scope.changeOrder = function (option) {
-        if (option === "none"){
-            $scope.filter.order = "ASC";
         }
     };
 
