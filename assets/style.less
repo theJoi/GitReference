@@ -141,6 +141,9 @@ input:active {
     border-style: solid;
 }
 
+.search i {
+   margin-left: 10px;
+}
 .search > input {
     width: 100%;
     padding: 10px;
@@ -156,7 +159,7 @@ input:active {
     display: block;
     overflow-y: scroll;
     width: 65vw;
-    max-height: 100vh;
+    max-height: 67vh;
 }
 
 .main-table th,
@@ -174,8 +177,8 @@ input:active {
     }
 }
 
-tr {
-    border-top: 1px solid @dividerColor;
+.main-table tr {
+    border-bottom: 1px solid @dividerColor;
     &:hover:not(.head) {
         &:not(.active) {
             background: @lightPrimaryColor;
@@ -184,10 +187,13 @@ tr {
     }
 }
 
-tr.active {
+.main-table tr.active {
     background: fadeout(@accentColor, 50%);
 }
 
+.main-table thead tr {
+    border-bottom: 3px solid @dividerColor;
+}
 .description,
 .main-table {
     border-color: @lightPrimaryColor;

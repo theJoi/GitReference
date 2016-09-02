@@ -370,7 +370,7 @@ var exampleData = {
 
 var tips = [
     "Use tab to autocomplete branch names.",
-    "Commit messages should be descriptive enough that it's clear WHY these changes were made.",
+    "Remember commit messages, although short, should be descriptive enough that it's clear WHAT and WHY changes were made.",
 "Commit often. A commit should represent the smallest logical unit of change. If your commits contain multiple \"whys\" then you're not commiting often enough.",
 "Fear of COMMITment will always bit you in the bum later."];
 

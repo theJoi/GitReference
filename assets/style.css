@@ -108,6 +108,9 @@ input:active::placeholder {
   background: rgba(207, 216, 220, 0.2);
   border-style: solid;
 }
+.search i {
+  margin-left: 10px;
+}
 .search > input {
   width: 100%;
   padding: 10px;
@@ -121,7 +124,7 @@ input:active::placeholder {
   display: block;
   overflow-y: scroll;
   width: 65vw;
-  max-height: 100vh;
+  max-height: 67vh;
 }
 .main-table th:nth-of-type(1),
 .main-table td:nth-of-type(1) {
@@ -139,15 +142,18 @@ input:active::placeholder {
 .main-table td:nth-of-type(5) {
   width: 330px;
 }
-tr {
-  border-top: 1px solid rgba(207, 216, 220, 0.2);
+.main-table tr {
+  border-bottom: 1px solid rgba(207, 216, 220, 0.2);
 }
-tr:hover:not(.head):not(.active) {
+.main-table tr:hover:not(.head):not(.active) {
   background: #cfd8dc;
   cursor: pointer;
 }
-tr.active {
+.main-table tr.active {
   background: rgba(255, 235, 59, 0.5);
+}
+.main-table thead tr {
+  border-bottom: 3px solid rgba(207, 216, 220, 0.2);
 }
 .description,
 .main-table {
