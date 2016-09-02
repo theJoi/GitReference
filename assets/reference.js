@@ -21,51 +21,7 @@ var commandData = {
         "flags": "--guide or -g (list useful guides)",
         "long": "This is where you go for quick help. It functions exactly the same as git --help. Additionally, you can change the behavior and default format of help using the config command (see reference).",
         "reference": "https://git-scm.com/docs/git-help",
-        "keywords": "help",
-        "examples": [
-            {
-                "title": "no options",
-                "flags": "",
-                "desc": "list common Git commands",
-                "code": "git help"
-
-    }, {
-                "title": "ALL",
-                "flags": "--all, -a",
-                "desc": "lists all available commands",
-                "code": "git help --all"
-
-    }, {
-                "title": "GUIDE",
-                "flags": "--guide, -g",
-                "desc": "list useful Git guide",
-                "code": "git help --guide"
-
-    }, {
-                "title": "<command_name>",
-                "flags": "",
-                "desc": "list info for a particular command",
-                "code": "git help clone"
-
-    }, {
-                "title": "INFO",
-                "flags": "--info, -i",
-                "desc": "use option to display in info format",
-                "code": "git help -i clone"
-
-    }, {
-                "title": "MAN",
-                "flags": "--man, -m",
-                "desc": "display in manual format; produces the same result as man <command-name>. for example man git-clone",
-                "code": "git help --man clone"
-
-    }, {
-                "title": "WEB",
-                "flags": "--web, -w",
-                "desc": "displays manual page for command in HTML format",
-                "code": "git help --web clone"
-
-    }]
+        "keywords": "help"
     },
     "init": {
         "name": "init",
@@ -96,7 +52,63 @@ var commandData = {
       "copy",
       "bare",
       "url"
-    ],
+    ]
+    },
+    "git": {
+        "name": "git",
+        "type": "Git",
+        "fav": true,
+        "short": "All Hail Git!",
+        "flags": "--help, --version",
+        "long": "Obviously you need git to use git. Precede all commands with the command <code>git</code>. In addition, use this command to get info about git and set some configurations. Here's a couple examples, for more see the reference.",
+        "reference": "https://git-scm.com/docs/git",
+        "keywords": ""
+    }
+};
+
+
+var exampleData = {
+    "help": {
+        "examples": [
+            {
+                "title": "no options",
+                "flags": "",
+                "desc": "list common Git commands",
+                "code": "git help"
+    }, {
+                "title": "ALL",
+                "flags": "--all, -a",
+                "desc": "lists all available commands",
+                "code": "git help --all"
+    }, {
+                "title": "GUIDE",
+                "flags": "--guide, -g",
+                "desc": "list useful Git guide",
+                "code": "git help --guide"
+    }, {
+                "title": "<command_name>",
+                "flags": "",
+                "desc": "list info for a particular command",
+                "code": "git help clone"
+    }, {
+                "title": "INFO",
+                "flags": "--info, -i",
+                "desc": "use option to display in info format",
+                "code": "git help -i clone"
+    }, {
+                "title": "MAN",
+                "flags": "--man, -m",
+                "desc": "display in manual format; produces the same result as man <command-name>. for example man git-clone",
+                "code": "git help --man clone"
+    }, {
+                "title": "WEB",
+                "flags": "--web, -w",
+                "desc": "displays manual page for command in HTML format",
+                "code": "git help --web clone"
+
+    }]
+    },
+    "clone": {
         "examples": [{
                 "title": "Clone a Repo",
                 "flags": "",
@@ -141,14 +153,6 @@ var commandData = {
     }]
     },
     "git": {
-        "name": "git",
-        "type": "Git",
-        "fav": true,
-        "short": "All Hail Git!",
-        "flags": "--help, --version",
-        "long": "Obviously you need git to use git. Precede all commands with the command <code>git</code>. In addition, use this command to get info about git and set some configurations. Here's a couple examples, for more see the reference.",
-        "reference": "https://git-scm.com/docs/git",
-        "keywords": "",
         "examples": [
 
             {
@@ -172,3 +176,8 @@ var commandData = {
   ]
     }
 };
+
+
+var tips = [
+    "Use tab to autocomplete branch names.",
+    "Commit messages should be descriptive enough that it's clear WHY these changes were made."];

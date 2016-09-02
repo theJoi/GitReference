@@ -1,5 +1,5 @@
 /*jshint undef: false, browser: true*/
-var app = angular.module("gitref", ['ngSanitize','angular-toArrayFilter']);
+var app = angular.module("gitref", ['ngSanitize', 'angular-toArrayFilter']);
 
 app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
@@ -13,7 +13,7 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     $scope.filter = {
         fav: "",
-        favOption:  ""
+        favOption: ""
     };
 
 
@@ -21,16 +21,17 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
         $scope.activeCommand = command;
         $scope.pickedCommand.title = command;
         $scope.pickedCommand.long = $sce.trustAsHtml($scope.commands[command].long);
-        $scope.pickedCommand.examples = $scope.commands[command].examples;
-        if($scope.pickedCommand.examples){
-        for (var i = 0; i < $scope.pickedCommand.examples.length; i++) {
-            $scope.pickedCommand.examples[i].desc = $sce.trustAsHtml($scope.pickedCommand.examples[i].desc);
+        /* Get examples */
+        if (exampleData[command]) {
+            $scope.pickedCommand.examples = exampleData[command].examples;
+            for (var i = 0; i < $scope.pickedCommand.examples.length; i++) {
+                $scope.pickedCommand.examples[i].desc = $sce.trustAsHtml($scope.pickedCommand.examples[i].desc);
+            }
         }
-        }
-
         $scope.pickedCommand.reference = "See reference for more info about this command: ";
         $scope.pickedCommand.link = $scope.commands[command].reference;
     };
+
 
     $scope.getRandomTip = function () {
         var n = tips.length;
@@ -38,8 +39,9 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
         $scope.randomTip = tips[i];
     };
 
-    $scope.filterFav = function (flag){
-        if(flag){
+
+    $scope.filterFav = function (flag) {
+        if (flag) {
             $scope.filter.favOption = true;
         } else {
             $scope.filter.favOption = "";
@@ -48,4 +50,3 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     $scope.getRandomTip();
 });
-

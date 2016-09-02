@@ -9,7 +9,6 @@
 @secondaryTextColor: desaturate(@darkPrimaryColor, 50%);
 @dividerColor: fadeout(@lightPrimaryColor, 80%);
 
-
 /* BASE */
 
 * {
@@ -44,11 +43,10 @@ bold {
 }
 
 
-/* TABLES & INPUTS */
+/* BASE TABLES & INPUTS */
 
 table {
     table-layout: fixed;
-    width: 65%;
     padding: 10px;
     border-collapse: collapse;
 }
@@ -67,29 +65,6 @@ th {
     padding: 10px;
 }
 
-th:nth-of-type(1) {
-    width: 50px;
-}
-
-th:nth-of-type(2),
-th:nth-of-type(3) {
-    width: 150px;
-}
-
-tr {
-    border-top: 1px solid @dividerColor;
-    &:hover:not(.head) {
-        &:not(.active) {
-            background: @lightPrimaryColor;
-            cursor: pointer;
-        }
-    }
-}
-
-tr.active {
-    background: fadeout(@accentColor, 50%);
-}
-
 input,
 input:focus,
 input:active {
@@ -101,7 +76,7 @@ input:active {
 }
 
 
-/* DIVS */
+/* MAJOR DIVS */
 
 #HEADER,
 #MENU {
@@ -134,13 +109,16 @@ input:active {
     bottom: 0px;
 }
 
+
 /* HEADER ELEMENTS */
+
 .header-image {
-        height: 115px;
+    height: 7em;
     float: left;
     margin-top: -20px;
     margin-left: -20px;
 }
+
 .header-tip {
     position: absolute;
     top: 20px;
@@ -148,6 +126,8 @@ input:active {
     max-width: 400px;
     color: @lightPrimaryColor;
 }
+
+
 /* MAIN CONTAINER ELEMENTS */
 
 .search {
@@ -168,8 +148,48 @@ input:active {
     background: rgba(0, 0, 0, 0);
 }
 
+.main-table {
+    width: 65vw;
+}
+
+.main-table tbody {
+    display: block;
+    overflow-y: scroll;
+    width: 65vw;
+    max-height: 100vh;
+}
+
+.main-table th,
+.main-table td {
+    &:nth-of-type(1) {
+        width: 50px;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+        width: 150px;
+    }
+    &:nth-of-type(4),
+    &:nth-of-type(5) {
+        width: 330px;
+    }
+}
+
+tr {
+    border-top: 1px solid @dividerColor;
+    &:hover:not(.head) {
+        &:not(.active) {
+            background: @lightPrimaryColor;
+            cursor: pointer;
+        }
+    }
+}
+
+tr.active {
+    background: fadeout(@accentColor, 50%);
+}
+
 .description,
-table {
+.main-table {
     border-color: @lightPrimaryColor;
     border-style: solid;
     border-width: 0 0 1px 1px;
@@ -208,10 +228,10 @@ table {
     font-weight: 700;
     width: 29%;
 }
+
 .example-flag {
     font-weight: 400;
     font-family: 'Roboto Mono', monospace;
     text-align: right;
     width: 70%;
 }
-

@@ -10,20 +10,17 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,400i,500" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-
-    <script type="text/javascript" src="assets/reference.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
-    <script type="text/javascript" src="assets/tips.js"></script>
-     <script type="text/javascript" src="assets/toArrayFilter.js"></script>
+    <script type="text/javascript" src="assets/toArrayFilter.js"></script>
+    <script type="text/javascript" src="assets/reference.js"></script>
     <script type="text/javascript" src="index.js"></script>
-
 </head>
 
 <body ng-app='gitref' ng-controller="GitRefController">
 
     <div id="HEADER">
-       <img src="assets/iheartgit.png" class="header-image">
-       <span class="title">Joi's Git Reference</span>
+        <img src="assets/iheartgit.png" class="header-image">
+        <span class="title">Joi's Git Reference</span>
         <br><code>A prettified searchable git --help</code>
         <span class="header-tip">TIP: {{randomTip}}</span></div>
     <div id="MENU">MENU</div>
@@ -33,15 +30,17 @@
             <input type="text" placeholder="search" ng-model="filter.search">
         </div>
 
-        <table>
+        <table class="main-table">
             <thead>
                 <tr class="head">
-                    <th><i class="material-icons" ng-hide="filter.fav" ng-click="filter.fav=!filter.fav;filterFav(true)">favorite_border</i>
-                        <i class="material-icons" ng-show="filter.fav" ng-click="filter.fav=!filter.fav; filterFav(false)">favorite</i></th>
+                    <th>
+                        <i class="material-icons" ng-hide="filter.fav" ng-click="filter.fav=!filter.fav;filterFav(true)">favorite_border</i>
+                        <i class="material-icons" ng-show="filter.fav" ng-click="filter.fav=!filter.fav; filterFav(false)">favorite</i>
+                    </th>
                     <th>Command Name</th>
                     <th>Category</th>
                     <th>Short Description</th>
-                    <th>Favorite Flags</th>
+                    <th>Favorite Flag</th>
                 </tr>
             </thead>
             <tr ng-repeat="command in commands | toArray:false | filter:filter.search | filter:{fav:filter.favOption}" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
