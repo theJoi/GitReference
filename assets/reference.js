@@ -67,7 +67,7 @@ var commandData = {
     "bisect": {
         "name": "bisect",
         "type": "Debugging",
-        "fav": "FASLE",
+        "fav": false,
         "short": "Find a particular commit. Great for debugging.",
         "flags": "",
         "long": "In fact, git bisect can be used to find the commit that changed any property of your project; e.g., the commit that fixed a bug, or the commit that caused a benchmark’s performance to improve. To support this more general usage, the terms \"old\" and \"new\" can be used in place of \"good\" and \"bad\", or you can choose your own terms. See section \"Alternate terms\" below for more information.",
@@ -107,7 +107,7 @@ var commandData = {
     "diff": {
         "name": "diff",
         "type": "Inspect & Compare",
-        "fav": "FASLE",
+        "fav": false,
         "short": "Show changes between commits, commit and working tree, etc",
         "flags": "",
         "long": "",
@@ -127,7 +127,7 @@ var commandData = {
     "grep": {
         "name": "grep",
         "type": "Debugging",
-        "fav": "FASLE",
+        "fav": false,
         "short": "Print lines matching a pattern",
         "flags": "",
         "long": "",
@@ -157,7 +157,7 @@ var commandData = {
     "mv": {
         "name": "mv",
         "type": "Commitment",
-        "fav": "FASLE",
+        "fav": false,
         "short": "Move or rename a file, a directory, or a symlink",
         "flags": "",
         "long": "",
@@ -177,7 +177,7 @@ var commandData = {
     "push": {
         "name": "push",
         "type": "Commitment",
-        "fav": "FASLE",
+        "fav": false,
         "short": "Update remote refs along with associated objects",
         "flags": "",
         "long": "",
@@ -187,7 +187,7 @@ var commandData = {
     "rebase": {
         "name": "rebase",
         "type": "Patching",
-        "fav": "FASLE",
+        "fav": false,
         "short": "Forward-port local commits to the updated upstream head",
         "flags": "",
         "long": "",
@@ -197,7 +197,7 @@ var commandData = {
     "reset": {
         "name": "reset",
         "type": "Commitment",
-        "fav": "FASLE",
+        "fav": false,
         "short": "Reset current HEAD to the specified state",
         "flags": "",
         "long": "",
@@ -207,7 +207,7 @@ var commandData = {
     "rm": {
         "name": "rm",
         "type": "Commitment",
-        "fav": "FASLE",
+        "fav": false,
         "short": "Remove files from the working tree and from the index",
         "flags": "",
         "long": "",
@@ -217,7 +217,7 @@ var commandData = {
     "show": {
         "name": "show",
         "type": "Inspect & Compare",
-        "fav": "FASLE",
+        "fav": false,
         "short": "Show various types of objects",
         "flags": "",
         "long": "",
@@ -372,5 +372,9 @@ var tips = [
     "Use tab to autocomplete branch names.",
     "Remember commit messages, although short, should be descriptive enough that it's clear WHAT and WHY changes were made.",
 "Commit often. A commit should represent the smallest logical unit of change. If your commits contain multiple \"whys\" then you're not commiting often enough.",
-"Fear of COMMITment will always bit you in the bum later."];
+"Fear of COMMITment will always bit you in the bum later.",
+"Oh push it, push it real good.",
+"Always fetch before you push.",
+"Think of COMMITS more like your save button or mini backups and PUSHES as turning a draft in for review.",
+"Sometimes you make a change and commit, then immediately realize you forgot something or made a typo. If unpushed, you can simply fix it and AMEND it to the last commit."];
 
