@@ -63,6 +63,196 @@ var commandData = {
         "long": "Obviously you need git to use git. Precede all commands with the command <code>git</code>. In addition, use this command to get info about git and set some configurations. Here's a couple examples, for more see the reference.",
         "reference": "https://git-scm.com/docs/git",
         "keywords": ""
+    },
+    "bisect": {
+        "name": "bisect",
+        "type": "Debugging",
+        "fav": "FASLE",
+        "short": "Find a particular commit. Great for debugging.",
+        "flags": "",
+        "long": "In fact, git bisect can be used to find the commit that changed any property of your project; e.g., the commit that fixed a bug, or the commit that caused a benchmark’s performance to improve. To support this more general usage, the terms \"old\" and \"new\" can be used in place of \"good\" and \"bad\", or you can choose your own terms. See section \"Alternate terms\" below for more information.",
+        "reference": "https://git-scm.com/docs/git-bisect",
+        "keywords": ""
+    },
+    "branch": {
+        "name": "branch",
+        "type": "Branching & Merging",
+        "fav": true,
+        "short": "List, create, or delete branches",
+        "flags": "--list",
+        "long": "",
+        "reference": "https://git-scm.com/docs/git-branch",
+        "keywords": ""
+    },
+    "checkout": {
+        "name": "checkout",
+        "type": "Branching & Merging",
+        "fav": true,
+        "short": "Checkout a branch or paths to the working tree",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "commit": {
+        "name": "commit",
+        "type": "Commitment",
+        "fav": true,
+        "short": "Record changes to the repository",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "diff": {
+        "name": "diff",
+        "type": "Inspect & Compare",
+        "fav": "FASLE",
+        "short": "Show changes between commits, commit and working tree, etc",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "fetch": {
+        "name": "fetch",
+        "type": "Commitment",
+        "fav": true,
+        "short": "Download objects and refs from another repository",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "grep": {
+        "name": "grep",
+        "type": "Debugging",
+        "fav": "FASLE",
+        "short": "Print lines matching a pattern",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "log": {
+        "name": "log",
+        "type": "Inspect & Compare",
+        "fav": true,
+        "short": "Show commit logs",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "merge": {
+        "name": "merge",
+        "type": "Branching & Merging",
+        "fav": true,
+        "short": "Join two or more development histories together",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "mv": {
+        "name": "mv",
+        "type": "Commitment",
+        "fav": "FASLE",
+        "short": "Move or rename a file, a directory, or a symlink",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "pull": {
+        "name": "pull",
+        "type": "Commitment",
+        "fav": true,
+        "short": "Fetch from and integrate with another repository or a local branch",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "push": {
+        "name": "push",
+        "type": "Commitment",
+        "fav": "FASLE",
+        "short": "Update remote refs along with associated objects",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "rebase": {
+        "name": "rebase",
+        "type": "Patching",
+        "fav": "FASLE",
+        "short": "Forward-port local commits to the updated upstream head",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "reset": {
+        "name": "reset",
+        "type": "Commitment",
+        "fav": "FASLE",
+        "short": "Reset current HEAD to the specified state",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "rm": {
+        "name": "rm",
+        "type": "Commitment",
+        "fav": "FASLE",
+        "short": "Remove files from the working tree and from the index",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "show": {
+        "name": "show",
+        "type": "Inspect & Compare",
+        "fav": "FASLE",
+        "short": "Show various types of objects",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "status": {
+        "name": "status",
+        "type": "Commitment",
+        "fav": true,
+        "short": "Show the working tree status",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "tag": {
+        "name": "tag",
+        "type": "Branching & Merging",
+        "fav": true,
+        "short": "Create, list, delete or verify a tag object signed with GPG",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
+    },
+    "stash": {
+        "name": "stash",
+        "type": "Branching & Merging",
+        "fav": true,
+        "short": "",
+        "flags": "",
+        "long": "",
+        "reference": "",
+        "keywords": ""
     }
 };
 
@@ -180,4 +370,7 @@ var exampleData = {
 
 var tips = [
     "Use tab to autocomplete branch names.",
-    "Commit messages should be descriptive enough that it's clear WHY these changes were made."];
+    "Commit messages should be descriptive enough that it's clear WHY these changes were made.",
+"Commit often. A commit should represent the smallest logical unit of change. If your commits contain multiple \"whys\" then you're not commiting often enough.",
+"Fear of COMMITment will always bit you in the bum later."];
+
