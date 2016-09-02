@@ -14,8 +14,19 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
     $scope.randomTip = "";
 
     $scope.filter = {
-        favOption: ""  // Show only favs; true for yes, blank for no
+        favOption: "", // Show only favs; true for yes, blank for no
+        categories: {
+            "Branching & Merging": true,
+            "Setup & Config": true,
+            "Project Admin": true,
+            "Patching": true,
+            "Inspect & Compare": true,
+            "Git": true,
+            "Debugging": true,
+            "Commitment": true
+        }
     };
+
 
 
     $scope.displayDesc = function (command) {
@@ -51,6 +62,14 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
             $scope.filter.favOption = "";
         }
     };
+
+
+    $scope.showFilterCategories = function () {
+
+    };
+
+
+    $scope.filterCategory = function (category) {};
 
 
     $scope.getRandomTip();

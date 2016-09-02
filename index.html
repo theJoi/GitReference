@@ -66,6 +66,16 @@
                 <br>
                 <strong><a href="{{pickedCommand.link}}" target="_blank">{{pickedCommand.link}}</a></strong></p>
         </div>
+
+        <div class="category-filter">
+          <form ng-model="filter.categories">
+           <span ng-repeat="(key, value) in filter.categories">
+            <input type="checkbox" name="categories" ng-model="filter.categories[key]">{{key}}
+            </span>
+            <button>Cancel</button>
+            <button>Filter</button>
+            </form>
+        </div>
     </div>
 
 </body>

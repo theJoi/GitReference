@@ -42,6 +42,10 @@ body {
   background: #607d8b;
   overflow: hidden;
 }
+button {
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+}
 code {
   font-family: 'Roboto Mono', monospace;
 }
@@ -197,6 +201,31 @@ input:active::placeholder {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
   vertical-align: middle;
+}
+.category-filter {
+  position: fixed;
+  z-index: 3;
+  padding: 20px;
+  left: 10%;
+  background: #607d8b;
+  color: white;
+  border: 2px solid #455a64;
+  border-radius: 5px;
+  max-width: 25%;
+}
+.category-filter form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.category-filter input,
+.category-filter button {
+  margin: 5px;
+}
+.category-filter span {
+  flex: 1 1 100%;
+}
+.category-filter button {
+  flex: 1 1 40%;
 }
 /* DESCRIPTION CONTAINER ELEMENTS */
 .description {
