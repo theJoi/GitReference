@@ -24,6 +24,11 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
             "Git": true,
             "Debugging": true,
             "Commitment": true
+        },
+        sortString : {},
+        order: {
+        name: false,
+        type: 'inactive'
         }
     };
 
@@ -64,12 +69,17 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
     };
 
 
-    $scope.showFilterCategories = function () {
-
+    $scope.filterCategory = function () {
+        console.log("filter category function activated");
+        $scope.filter.sortString = {};
+        angular.forEach($scope.filter.categories, function(value, key){
+            if(!value){
+                console.log("remove the following category: " + key);
+            //    $scope.filter.sortString[key] = };
+                console.log($scope.filter.sortString);
+            }
+        });
     };
-
-
-    $scope.filterCategory = function (category) {};
 
 
     $scope.getRandomTip();

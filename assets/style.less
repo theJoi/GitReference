@@ -6,7 +6,7 @@
 @primaryColor: #607D8B;
 @lightPrimaryColor: #CFD8DC;
 @textPrimaryColor: #FFFFFF;
-@accentColor: #FFEB3B;
+@accentColor: #FFC107;
 @primaryTextColor: #212121;
 @secondaryTextColor: desaturate(@darkPrimaryColor, 50%);
 @dividerColor: fadeout(@lightPrimaryColor, 80%);
@@ -38,6 +38,15 @@ body {
 button {
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
+    background: @lightPrimaryColor;
+    padding: 5px;
+     border: 0 none;
+    border-radius: 3px;
+    &:hover {
+        cursor: pointer;
+        background: @accentColor;
+    }
+
 }
 
 code {
@@ -47,6 +56,14 @@ code {
 strong,
 bold {
     font-weight: 700;
+}
+
+.material-icons.active {
+    color: @accentColor;
+}
+
+[ng-click]:hover {
+    cursor: pointer;
 }
 
 /* BASE TABLES & INPUTS */
@@ -63,7 +80,6 @@ thead {
 
 th {
     font-weight: 400;
-    cursor: pointer;
 }
 
 td,
@@ -74,7 +90,7 @@ th {
 input,
 input:focus,
 input:active {
-    border: 0 solid white;
+    border: 0 none;
     outline: none;
     &::placeholder {
         color: black;
@@ -211,8 +227,12 @@ input:active {
 .thead-icons {
     .material-icons;
     vertical-align: middle;
+    &.inactive{
+        color: @dividerColor;
+    }
 }
 
+/* CATEGORY FILTER POPUP */
 .category-filter {
     position: fixed;
     z-index: 3;
@@ -223,7 +243,6 @@ input:active {
     border: 2px solid @darkPrimaryColor;
     border-radius: 5px;
      max-width: 25%;
-
 }
 
 .category-filter form {
