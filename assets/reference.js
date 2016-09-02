@@ -161,10 +161,7 @@ var commandData = {
                 "title": "HELP",
                 "flags": "--help",
                 "desc": "Get help. Works exactly like <code>git help</code>",
-                "code": [
-        "git --help",
-        "git --help --all"
-      ]
+                "code": "git --help, git --help --all"
     },
             {
                 "title": "BARE",

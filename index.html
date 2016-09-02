@@ -11,10 +11,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 
-    <script id="data" type="text/javascript" src="assets/reference.js"></script>
-    <script id="data" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
-    <script id="data" type="text/javascript" src="assets/tips.js"></script>
-    <script src="index.js"></script>
+    <script type="text/javascript" src="assets/reference.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="assets/tips.js"></script>
+     <script type="text/javascript" src="assets/toArrayFilter.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 
 </head>
 
@@ -24,23 +25,24 @@
         <br><code>A prettified searchable git --help</code>
         <span class="header-tip">TIP: {{randomTip}}</span></div>
     <div id="MENU">MENU</div>
-    <div id="MAIN" >
+    <div id="MAIN">
 
         <div class="search"><i class="material-icons">search</i>
-            <input type="text" placeholder="search">
+            <input type="text" placeholder="search" ng-model="filtersearch">
         </div>
 
         <table>
             <thead>
                 <tr class="head">
-                    <th><i class="material-icons">favorite_border</i></th>
+                    <th><i class="material-icons" ng-hide="filter.fav" ng-click="filter.fav=!filter.fav;filterFav(true)">favorite_border</i>
+                        <i class="material-icons" ng-show="filter.fav" ng-click="filter.fav=!filter.fav; filterFav(false)">favorite</i></th>
                     <th>Command Name</th>
                     <th>Category</th>
                     <th>Short Description</th>
                     <th>Favorite Flags</th>
                 </tr>
             </thead>
-            <tr ng-repeat="command in commands" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
+            <tr ng-repeat="command in commands | toArray:false | filter:filtersearch" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
                 <td><span ng-show="command.fav"><i class="material-icons">favorite</i></span></td>
                 <td>{{command.name}}</td>
                 <td>{{command.type}}</td>

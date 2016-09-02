@@ -1,7 +1,7 @@
 /*jshint undef: false, browser: true*/
-var app = angular.module("gitref", ['ngSanitize']);
+var app = angular.module("gitref", ['ngSanitize','angular-toArrayFilter']);
 
-app.controller("GitRefController", function($scope,$http,$sce,$interval) {
+app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     console.log("git ref controller connected.");
     $scope.commands = commandData;
@@ -11,29 +11,39 @@ app.controller("GitRefController", function($scope,$http,$sce,$interval) {
     $scope.activeCommand = "";
     $scope.randomTip = "";
 
+    $scope.filter = {
+        fav: "",
+        favOption:  ""
+    };
 
-    $scope.displayDesc = function(command){
+
+    $scope.displayDesc = function (command) {
         $scope.activeCommand = command;
         $scope.pickedCommand.title = command;
         $scope.pickedCommand.long = $sce.trustAsHtml($scope.commands[command].long);
         $scope.pickedCommand.examples = $scope.commands[command].examples;
-        for(var i = 0; i < $scope.pickedCommand.examples.length; i++ ){
+        for (var i = 0; i < $scope.pickedCommand.examples.length; i++) {
             $scope.pickedCommand.examples[i].desc = $sce.trustAsHtml($scope.pickedCommand.examples[i].desc);
         }
 
         $scope.pickedCommand.reference = "See reference for more info about this command: ";
-        $scope.pickedCommand.link =  $scope.commands[command].reference;
+        $scope.pickedCommand.link = $scope.commands[command].reference;
     };
 
-    $scope.getRandomTip = function(){
+    $scope.getRandomTip = function () {
         var n = tips.length;
         var i = Math.floor(Math.random() * n);
         $scope.randomTip = tips[i];
-        console.log(tips);
-        console.log(i);
-        console.log($scope.randomTip);
+    };
 
+    $scope.filterFav = function (flag){
+        if(flag){
+            $scope.filter.favOption = "filter:{command.fav: true}";
+        } else {
+            $scope.favOption = "";
+        }
     };
 
     $scope.getRandomTip();
 });
+

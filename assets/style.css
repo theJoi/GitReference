@@ -39,6 +39,7 @@ thead {
 }
 th {
   font-weight: 400;
+  cursor: pointer;
 }
 td,
 th {
