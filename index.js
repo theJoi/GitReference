@@ -5,15 +5,18 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     console.log("git ref controller connected.");
     $scope.commands = commandData;
-    $scope.pickedCommand = {};
-    $scope.pickedCommand.title = "";
-    $scope.pickedCommand.long = "Select a git command from the list to the left to see a full description with examples.";
+    $scope.pickedCommand = {
+        title: "",
+            long: "Select a git command from the list to the left to see a full description with examples."
+    };
     $scope.activeCommand = "";
     $scope.randomTip = "";
 
     $scope.filter = {
         fav: "",
-        favOption: ""
+        favOption: "",
+        order: "none",
+        filter: false
     };
 
 
@@ -47,6 +50,13 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
             $scope.filter.favOption = "";
         }
     };
+
+    $scope.changeOrder = function (option) {
+        if (option === "none"){
+            $scope.filter.order = "ASC";
+        }
+    };
+
 
     $scope.getRandomTip();
 });

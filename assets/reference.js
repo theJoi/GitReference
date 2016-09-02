@@ -375,6 +375,5 @@ var tips = [
 "Fear of COMMITment will always bit you in the bum later.",
 "Oh push it, push it real good.",
 "Always fetch before you push.",
-"Think of COMMITS more like your save button or mini backups and PUSHES as turning a draft in for review.",
 "Sometimes you make a change and commit, then immediately realize you forgot something or made a typo. If unpushed, you can simply fix it and AMEND it to the last commit."];
 

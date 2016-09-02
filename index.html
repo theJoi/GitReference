@@ -6,7 +6,6 @@
     <title>Jois Git Reference</title>
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,400i,500" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
@@ -37,13 +36,15 @@
                         <i class="material-icons" ng-hide="filter.fav" ng-click="filter.fav=!filter.fav;filterFav(true)">favorite_border</i>
                         <i class="material-icons" ng-show="filter.fav" ng-click="filter.fav=!filter.fav; filterFav(false)">favorite</i>
                     </th>
-                    <th>Command Name</th>
+                    <th ng-click="filter.reverse=!filter.reverse"><i class="thead-icons">
+                        <span ng-if="!filter.reverse">arrow_downward</span>
+                    <span ng-if="filter.reverse">arrow_upward</span></i>Command Name</th>
                     <th>Category</th>
                     <th>Short Description</th>
                     <th>Favorite Flag</th>
                 </tr>
             </thead>
-            <tr ng-repeat="command in commands | toArray:false | filter:filter.search | filter:{fav:filter.favOption}" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
+            <tr ng-repeat="command in commands | toArray:false | filter:filter.search | filter:{fav:filter.favOption} | orderBy:'name':filter.reverse" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
                 <td><span ng-show="command.fav"><i class="material-icons">favorite</i></span></td>
                 <td>{{command.name}}</td>
                 <td>{{command.type}}</td>
