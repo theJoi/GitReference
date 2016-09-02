@@ -28,7 +28,7 @@
     <div id="MAIN">
 
         <div class="search"><i class="material-icons">search</i>
-            <input type="text" placeholder="search" ng-model="filtersearch">
+            <input type="text" placeholder="search" ng-model="filter.search">
         </div>
 
         <table>
@@ -42,7 +42,7 @@
                     <th>Favorite Flags</th>
                 </tr>
             </thead>
-            <tr ng-repeat="command in commands | toArray:false | filter:filtersearch" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
+            <tr ng-repeat="command in commands | toArray:false | filter:filter.search | filter:{fav:filter.favOption}" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
                 <td><span ng-show="command.fav"><i class="material-icons">favorite</i></span></td>
                 <td>{{command.name}}</td>
                 <td>{{command.type}}</td>

@@ -38,9 +38,9 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     $scope.filterFav = function (flag){
         if(flag){
-            $scope.filter.favOption = "filter:{command.fav: true}";
+            $scope.filter.favOption = true;
         } else {
-            $scope.favOption = "";
+            $scope.filter.favOption = "";
         }
     };
 
