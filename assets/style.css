@@ -102,6 +102,12 @@ input:active::placeholder {
   bottom: 0px;
 }
 /* HEADER ELEMENTS */
+.header-image {
+  height: 115px;
+  float: left;
+  margin-top: -20px;
+  margin-left: -20px;
+}
 .header-tip {
   position: absolute;
   top: 20px;

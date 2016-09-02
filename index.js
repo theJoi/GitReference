@@ -22,8 +22,10 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
         $scope.pickedCommand.title = command;
         $scope.pickedCommand.long = $sce.trustAsHtml($scope.commands[command].long);
         $scope.pickedCommand.examples = $scope.commands[command].examples;
+        if($scope.pickedCommand.examples){
         for (var i = 0; i < $scope.pickedCommand.examples.length; i++) {
             $scope.pickedCommand.examples[i].desc = $sce.trustAsHtml($scope.pickedCommand.examples[i].desc);
+        }
         }
 
         $scope.pickedCommand.reference = "See reference for more info about this command: ";
