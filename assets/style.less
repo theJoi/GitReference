@@ -7,9 +7,18 @@
 @lightPrimaryColor: #CFD8DC;
 @textPrimaryColor: #FFFFFF;
 @accentColor: #FFC107;
+@lightAccentColor: #FFECB3;
 @primaryTextColor: #212121;
 @secondaryTextColor: desaturate(@darkPrimaryColor, 50%);
 @dividerColor: fadeout(@lightPrimaryColor, 80%);
+@alertColor: #f44336;
+
+p.alert {
+    color: @accentColor;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+}
 
 /* BASE */
 
@@ -40,11 +49,18 @@ button {
     text-transform: uppercase;
     background: @lightPrimaryColor;
     padding: 5px;
-     border: 0 none;
+    border: 0 none;
     border-radius: 3px;
+    border: 1px solid @dividerColor;
     &:hover {
         cursor: pointer;
         background: @accentColor;
+            &.alert {
+        background: @alertColor;
+    }
+    &.action {
+        background: @accentColor;
+    }
     }
 
 }
@@ -62,8 +78,12 @@ bold {
     color: @accentColor;
 }
 
-[ng-click]:hover {
+[ng-click] {
     cursor: pointer;
+}
+
+.center {
+    text-align: center;
 }
 
 /* BASE TABLES & INPUTS */
@@ -164,8 +184,9 @@ input:active {
 }
 
 .search i {
-   margin-left: 10px;
+    margin-left: 10px;
 }
+
 .search > input {
     width: 100%;
     padding: 10px;
@@ -191,11 +212,11 @@ input:active {
         width: 50px;
     }
     &:nth-of-type(2),
-    &:nth-of-type(3){
+    &:nth-of-type(3) {
         width: 180px;
     }
     &:nth-of-type(4),
- {
+    {
         width: 330px;
     }
 }
@@ -217,6 +238,7 @@ input:active {
 .main-table thead tr {
     border-bottom: 3px solid @dividerColor;
 }
+
 .description,
 .main-table {
     border-color: @lightPrimaryColor;
@@ -227,32 +249,37 @@ input:active {
 .thead-icons {
     .material-icons;
     vertical-align: middle;
-    &.inactive{
+    &.inactive {
         color: @dividerColor;
     }
 }
 
+
 /* CATEGORY FILTER POPUP */
+
 .category-filter {
     position: fixed;
     z-index: 3;
     padding: 20px;
     left: 10%;
-    background: @primaryColor;
+    background: @darkPrimaryColor;
     color: white;
-    border: 2px solid @darkPrimaryColor;
+    border: 1px solid @primaryTextColor;
     border-radius: 5px;
-     max-width: 25%;
+    max-width: 25%;
+}
+
+[type=checkbox] {
+    background: white;
 }
 
 .category-filter form {
-        display: flex;
+    display: flex;
     flex-wrap: wrap;
-
-
 }
 
-.category-filter input, .category-filter button {
+.category-filter input,
+.category-filter button {
     margin: 5px;
 }
 
@@ -263,6 +290,7 @@ input:active {
 .category-filter button {
     flex: 1 1 40%;
 }
+
 
 /* DESCRIPTION CONTAINER ELEMENTS */
 

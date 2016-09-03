@@ -25,11 +25,12 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
             "Debugging": true,
             "Commitment": true
         },
-        sortString : {},
+        catCount: 8,
         order: {
-        name: false,
-        type: 'inactive'
-        }
+            name: false,
+            type: 'inactive'
+        },
+        catFilters: []
     };
 
 
@@ -52,14 +53,14 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
         $scope.pickedCommand.link = $scope.commands[command].reference;
     };
 
-
+    /* Function to pick random quote */
     $scope.getRandomTip = function () {
         var n = tips.length;
         var i = Math.floor(Math.random() * n);
         $scope.randomTip = tips[i];
     };
 
-
+    /* Toggle filter to show only favorites */
     $scope.filterFav = function (flag) {
         if (flag) {
             $scope.filter.favOption = true;
@@ -71,14 +72,36 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     $scope.filterCategory = function () {
         console.log("filter category function activated");
-        $scope.filter.sortString = {};
-        angular.forEach($scope.filter.categories, function(value, key){
-            if(!value){
+        angular.forEach($scope.filter.categories, function (value, key) {
+            var i;
+            if (!value) {
                 console.log("remove the following category: " + key);
-            //    $scope.filter.sortString[key] = };
-                console.log($scope.filter.sortString);
+
+                if((i = $scope.filter.catFilters.indexOf(key)) > -1){
+                    $scope.filter.catFilters.splice(i,1);
+                }
+            } else if((i = $scope.filter.catFilters.indexOf(key)) < 0) {
+                $scope.filter.catFilters.push(key);
             }
         });
+        console.log("current filter: " + $scope.filter.catFilters);
+         console.log("checkboxes: " + $scope.filter.categories);
+        $scope.showCatFilter = false;
+        if($scope.filter.catFilters.length < $scope.filter.catCount){
+            $scope.filterActive = true;
+            console.log("cat filter now active");
+        }
+
+    };
+
+    $scope.catFilter = function (command) {
+
+        if ($scope.filter.catFilters.length > 0) {
+            if ($scope.filter.catFilters.indexOf(command.type) < 0)
+                return;
+        }
+
+        return command;
     };
 
 
