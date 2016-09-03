@@ -92,7 +92,9 @@
                 <span ng-repeat="(key, value) in filter.categories">
             <input type="checkbox" name="categories" ng-model="filter.categories[key]">{{key}}
             </span>
-               <input type="checkbox" ng-model="filter.selectAll" ng-click="selectAll()">
+                <p class=fb100>
+                <input type="checkbox" ng-model="filter.selectAll" ng-click="selectAll()">Select All
+                </p>
                 <button ng-click="showCatFilter=false" class="alert">Cancel</button>
                 <button ng-click="filterCategory()" class="action">Filter</button>
             </form>

@@ -42,6 +42,7 @@ body {
     padding: 0;
     background: @primaryColor;
     overflow: hidden;
+    font-size: 1em;
 }
 
 button {
@@ -62,6 +63,7 @@ button {
 
 code {
     font-family: 'Roboto Mono', monospace;
+    font-size: inherit;
 }
 
 strong,
@@ -77,6 +79,9 @@ bold {
     cursor: pointer;
 }
 
+
+/* REUSABLE ELEMENTS */
+
 .center {
     text-align: center;
 }
@@ -89,6 +94,10 @@ bold {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
+.fb100 {
+  flex: 1 0 99%;
+.center;
+}
 /* BASE TABLES & INPUTS */
 
 table {
@@ -206,7 +215,7 @@ input:active {
     overflow-y: auto;
     width: 65vw;
     max-height: 67vh;
-    border-bottom: solid 1px @primaryColor;
+    border-bottom: solid 1px @lightPrimaryColor;
 }
 
 .main-table th,
@@ -263,18 +272,14 @@ input:active {
 .category-filter {
     position: fixed;
     z-index: 3;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     top: 50px;
     left: 50px;
     background: @lightPrimaryColor;
     color: @primaryTextColor;
     border-radius: 5px;
-    width: 30%;
+    width: 40%;
     .shadow1;
-}
-
-[type=checkbox] {
-    background: white;
 }
 
 .category-filter form {
@@ -285,7 +290,7 @@ input:active {
 .category-filter span,
 .category-filter button {
     margin: 5px;
-    flex: 1 1 40%;
+    flex: 0 1 30%;
 }
 
 .category-filter button {
@@ -295,7 +300,8 @@ input:active {
 .filter-title {
     .center;
     font-weight: 400;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid @primaryColor;
+    font-size: 1.2em;
 }
 
 

@@ -47,6 +47,7 @@ body {
   padding: 0;
   background: #607d8b;
   overflow: hidden;
+  font-size: 1em;
 }
 button {
   font-family: 'Roboto', sans-serif;
@@ -64,6 +65,7 @@ button:hover {
 }
 code {
   font-family: 'Roboto Mono', monospace;
+  font-size: inherit;
 }
 strong,
 bold {
@@ -75,6 +77,7 @@ bold {
 [ng-click] {
   cursor: pointer;
 }
+/* REUSABLE ELEMENTS */
 .center {
   text-align: center;
 }
@@ -83,6 +86,10 @@ bold {
 }
 .shadow1 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.fb100 {
+  flex: 1 0 99%;
+  text-align: center;
 }
 /* BASE TABLES & INPUTS */
 table {
@@ -181,7 +188,7 @@ input:active::placeholder {
   overflow-y: auto;
   width: 65vw;
   max-height: 67vh;
-  border-bottom: solid 1px #607d8b;
+  border-bottom: solid 1px #cfd8dc;
 }
 .main-table th:nth-of-type(1),
 .main-table td:nth-of-type(1) {
@@ -239,17 +246,14 @@ input:active::placeholder {
 .category-filter {
   position: fixed;
   z-index: 3;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   top: 50px;
   left: 50px;
   background: #cfd8dc;
   color: #212121;
   border-radius: 5px;
-  width: 30%;
+  width: 40%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-[type=checkbox] {
-  background: white;
 }
 .category-filter form {
   display: flex;
@@ -258,7 +262,7 @@ input:active::placeholder {
 .category-filter span,
 .category-filter button {
   margin: 5px;
-  flex: 1 1 40%;
+  flex: 0 1 30%;
 }
 .category-filter button {
   background: #607d8b;
@@ -267,7 +271,8 @@ input:active::placeholder {
 .filter-title {
   text-align: center;
   font-weight: 400;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #607d8b;
+  font-size: 1.2em;
 }
 /* DESCRIPTION CONTAINER ELEMENTS */
 .description {

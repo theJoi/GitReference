@@ -69,43 +69,43 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
     };
 
 
+    /* Function to select categories for category filter (catFilter) */
     $scope.filterCategory = function () {
-        console.log("filter category function activated");
         angular.forEach($scope.filter.categories, function (value, key) {
             var i;
             if (!value) {
                 console.log("remove the following category: " + key);
 
-                if((i = $scope.filter.catFilters.indexOf(key)) > -1){
-                    $scope.filter.catFilters.splice(i,1);
+                if ((i = $scope.filter.catFilters.indexOf(key)) > -1) {
+                    $scope.filter.catFilters.splice(i, 1);
                 }
-            } else if((i = $scope.filter.catFilters.indexOf(key)) < 0) {
+            } else if ((i = $scope.filter.catFilters.indexOf(key)) < 0) {
                 $scope.filter.catFilters.push(key);
             }
         });
-        console.log("current filter: " + $scope.filter.catFilters);
-         console.log("checkboxes: " + $scope.filter.categories);
         $scope.showCatFilter = false;
-        if($scope.filter.catFilters.length < $scope.filter.catCount){
+        if ($scope.filter.catFilters.length < $scope.filter.catCount) {
             $scope.filterActive = true;
-            console.log("cat filter now active");
+            console.log("Category filter active.");
+        } else {
+            $scope.filterActive = false;
         }
-
     };
 
+    /* Custom filter for categories */
     $scope.catFilter = function (command) {
-
         if ($scope.filter.catFilters.length > 0) {
             if ($scope.filter.catFilters.indexOf(command.type) < 0)
                 return;
         }
-
         return command;
     };
 
+
+    /* Select All feature for category filter */
     $scope.selectAll = function () {
         console.log($scope.filter.categories);
-        angular.forEach($scope.filter.categories, function (value,key) {
+        angular.forEach($scope.filter.categories, function (value, key) {
             $scope.filter.categories[key] = $scope.filter.selectAll;
         });
         console.log($scope.filter.categories);
