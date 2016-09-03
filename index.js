@@ -27,6 +27,7 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
             "Debugging": true,
             "Commitment": true
         },
+        selectAll: true,
         catCount: 8,
         catFilters: []
     };
@@ -100,6 +101,15 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
         }
 
         return command;
+    };
+
+    $scope.selectAll = function () {
+        console.log($scope.filter.categories);
+        angular.forEach($scope.filter.categories, function (value,key) {
+            $scope.filter.categories[key] = $scope.filter.selectAll;
+        });
+        console.log($scope.filter.categories);
+
     };
 
 
