@@ -15,6 +15,8 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     $scope.filter = {
         favOption: "", // Show only favs; true for yes, blank for no
+        order: 'name',
+        reverseOrder: false,
         categories: {
             "Branching & Merging": true,
             "Setup & Config": true,
@@ -26,10 +28,6 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
             "Commitment": true
         },
         catCount: 8,
-        order: {
-            name: false,
-            type: 'inactive'
-        },
         catFilters: []
     };
 

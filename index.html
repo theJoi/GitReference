@@ -22,12 +22,14 @@
         <span class="title">Joi's Git Reference</span>
         <br><code>A prettified searchable git --help</code>
         <span class="header-tip">TIP: {{randomTip}}</span></div>
-    <div id="MENU"><p class="alert">This reference is currently under development and is incomplete.</p></div>
+    <div id="MENU">
+        <p class="alert">This reference is currently under development and is incomplete.</p>
+    </div>
     <div id="MAIN">
 
         <div class="search">
-           <i class="material-icons" ng-class="{'active':filterActive}" ng-click="showCatFilter=true" title="filter by category">filter_list</i>
-           <i class="material-icons">search</i>
+            <i class="material-icons" ng-class="{'active':filterActive}" ng-click="showCatFilter=true" title="filter by category">filter_list</i>
+            <i class="material-icons">search</i>
             <input type="text" placeholder="Search" ng-model="filter.search">
         </div>
 
@@ -39,18 +41,21 @@
                         <i class="material-icons" ng-show="filter.fav" ng-click="filter.fav=!filter.fav; filterFav(false)">favorite</i>
                     </th>
 
-                    <th ng-click="filter.order.name=!filter.order.name; filter.order.type='inactive'">
-                       Command Name
-                       <i class="thead-icons" ng-show="filter.order.name!='inactive'">
-                        <span ng-if="!filter.order.name">arrow_downward</span>
-                        <span ng-if="filter.order.name">arrow_upward</span>
-                        </i></th>
+                    <th ng-click="filter.order = 'name'; filter.reverseOrder=!filter.reverseOrder">
+                        Command Name
+                        <i class="thead-icons" ng-show="filter.order==='name'">
+                        <span ng-if="!filter.reverseOrder">arrow_downward</span>
+                        <span ng-if="filter.reverseOrder">arrow_upward</span>
+                        </i>
+                    </th>
 
-                    <th ng-click="filter.order.type=!filter.order.type; filter.order.name='inactive'">
-                       Category
-                        <i class="thead-icons" ng-show="filter.order.type!='inactive'">
-                        <span ng-if="!filter.reverse">arrow_downward</span>
-                    <span ng-if="filter.reverse">arrow_upward</span></i></th>
+                    <th ng-click="filter.order = 'type'; filter.reverseOrder=!filter.reverseOrder">
+                        Category
+                        <i class="thead-icons" ng-show="filter.order==='type'">
+                        <span ng-if="!filter.reverseOrder">arrow_downward</span>
+                        <span ng-if="filter.reverseOrder">arrow_upward</span>
+                        </i>
+                    </th>
 
                     <th>Short Description</th>
                     <th>Favorite Flag</th>
@@ -58,7 +63,7 @@
                 </tr>
             </thead>
 
-            <tr ng-repeat="command in commands | toArray:false | filter:filter.search | filter:{fav:filter.favOption} | filter:catFilter | orderBy:'name':filter.order.name | orderBy:'type':filter.order.type" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
+            <tr ng-repeat="command in commands | toArray:false | filter:filter.search | filter:{fav:filter.favOption} | filter:catFilter | orderBy:filter.order:filter.reverseOrder" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
                 <td><span ng-show="command.fav"><i class="material-icons">favorite</i></span></td>
                 <td>{{command.name}}</td>
                 <td>{{command.type}}</td>
@@ -82,13 +87,13 @@
         </div>
 
         <div ng-show="showCatFilter" class="category-filter">
-         <p class="center">FILTER BY CATEGORY</p>
-          <form ng-model="filter.categories">
-           <span ng-repeat="(key, value) in filter.categories">
+            <p class="center">FILTER BY CATEGORY</p>
+            <form ng-model="filter.categories">
+                <span ng-repeat="(key, value) in filter.categories">
             <input type="checkbox" name="categories" ng-model="filter.categories[key]">{{key}}
             </span>
-            <button ng-click="showCatFilter=false" class="alert">Cancel</button>
-            <button ng-click="filterCategory()" class="action">Filter</button>
+                <button ng-click="showCatFilter=false" class="alert">Cancel</button>
+                <button ng-click="filterCategory()" class="action">Filter</button>
             </form>
         </div>
     </div>
