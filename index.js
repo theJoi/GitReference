@@ -12,6 +12,7 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
     };
     $scope.activeCommand = "";
     $scope.randomTip = "";
+  //  $scope.questionMode = false;
 
     $scope.filter = {
         favOption: "", // Show only favs; true for yes, blank for no
@@ -29,7 +30,8 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
         },
         selectAll: true,
         catCount: 8,
-        catFilters: []
+        catFilters: [],
+        keywords: []
     };
 
 
@@ -92,6 +94,18 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
         }
     };
 
+
+    /* Select All feature for category filter */
+    $scope.selectAll = function () {
+        console.log($scope.filter.categories);
+        angular.forEach($scope.filter.categories, function (value, key) {
+            $scope.filter.categories[key] = $scope.filter.selectAll;
+        });
+        console.log($scope.filter.categories);
+
+    };
+
+
     /* Custom filter for categories */
     $scope.catFilter = function (command) {
         if ($scope.filter.catFilters.length > 0) {
@@ -102,14 +116,25 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
     };
 
 
-    /* Select All feature for category filter */
-    $scope.selectAll = function () {
-        console.log($scope.filter.categories);
-        angular.forEach($scope.filter.categories, function (value, key) {
-            $scope.filter.categories[key] = $scope.filter.selectAll;
+    /* Get keywords for use with question mode filter */
+    $scope.getKeywords = function (keywordStr) {
+        $scope.filter.keywords = keywordStr.split(' ');
+        console.log($scope.filter.keywords);
+        angular.forEach($scope.filter.keywords, function (value,key) {
+            $scope.filter.keywords[key] = value.toLowerCase();
         });
-        console.log($scope.filter.categories);
+        console.log($scope.filter.keywords);
+    };
 
+    /* Calculate relevance score */
+    $scope.relevanceCalc = function (command) {
+        var rScore;
+    };
+
+
+    /* Custom filter for question mode */
+    $scope.questionFilter = function (command) {
+        angular.forEach($scope.filter.keywords);
     };
 
 
