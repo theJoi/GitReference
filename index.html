@@ -28,12 +28,18 @@
     <div id="MAIN">
 
         <div class="search">
-            <i class="material-icons" ng-class="{'active':filterActive}" ng-click="showCatFilter=true" title="filter by category">filter_list</i>
+           <i class="material-icons" ng-click="questionMode=!questionMode">
+               <span ng-hide="questionMode">question_answer</span>
+               <span ng-show="questionMode">view_list</span></i>
+            <i ng-hide="questionMode" class="material-icons" ng-class="{'active':filterActive}" ng-click="showCatFilter=true" title="filter by category">filter_list</i>
             <i class="material-icons">search</i>
-            <input type="text" placeholder="Search" ng-model="filter.search">
+            <input ng-if="!questionMode" type="text" placeholder="Search by command name, keyword, or phrase" ng-model="filter.search">
+            <input ng-if="questionMode" type="text" placeholder="Search by question or multiple keywords (space separated)" ng-model="filter.question">
+            <button ng-if="questionMode" class="question-button" ng-click="getKeywords(test)">Show Matches</button>
         </div>
 
-        <table class="main-table">
+        <!-- LIST MODE TABLE -->
+        <table class="main-table" ng-if="!questionMode">
             <thead>
                 <tr class="head">
                     <th>
@@ -71,6 +77,44 @@
                 <td>{{command.flags}}</td>
             </tr>
         </table>
+
+        <!-- QUESTION MODE TABLE -->
+          <table class="main-table" ng-if="questionMode">
+            <thead>
+                <tr class="head">
+                    <th>
+                        Score
+                    </th>
+
+                    <th ng-click="filter.order = 'name'; filter.reverseOrder=!filter.reverseOrder">
+                        Command Name
+                        <i class="thead-icons" ng-show="filter.order==='name'">
+                        <span ng-if="!filter.reverseOrder">arrow_downward</span>
+                        <span ng-if="filter.reverseOrder">arrow_upward</span>
+                        </i>
+                    </th>
+
+                    <th ng-click="filter.order = 'type'; filter.reverseOrder=!filter.reverseOrder">
+                        Category
+                        <i class="thead-icons" ng-show="filter.order==='type'">
+                        <span ng-if="!filter.reverseOrder">arrow_downward</span>
+                        <span ng-if="filter.reverseOrder">arrow_upward</span>
+                        </i>
+                    </th>
+
+                    <th>Short Description</th>
+
+                </tr>
+            </thead>
+
+            <tr ng-repeat="command in commands | toArray:false | filter:filter.search | filter:{fav:filter.favOption} | filter:catFilter | orderBy:filter.order:filter.reverseOrder" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
+                <td>{{command.score || '-'}}</td>
+                <td>{{command.name}}</td>
+                <td>{{command.type}}</td>
+                <td>{{command.short}}</td>
+            </tr>
+        </table>
+
 
         <div class="description">
             <h2>{{pickedCommand.title}}</h2>

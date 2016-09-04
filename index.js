@@ -61,6 +61,7 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
         $scope.randomTip = tips[i];
     };
 
+
     /* Toggle filter to show only favorites */
     $scope.filterFav = function (flag) {
         if (flag) {
@@ -118,6 +119,10 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     /* Get keywords for use with question mode filter */
     $scope.getKeywords = function (keywordStr) {
+        if(keywordStr == undefined){
+            alert('Please enter a question first');
+            return;
+        }
         $scope.filter.keywords = keywordStr.split(' ');
         console.log($scope.filter.keywords);
         angular.forEach($scope.filter.keywords, function (value,key) {

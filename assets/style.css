@@ -77,6 +77,17 @@ bold {
 [ng-click] {
   cursor: pointer;
 }
+::-webkit-input-placeholder {
+  font-size: 0.8em;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  font-size: 0.8em;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-size: 0.8em;
+}
 /* REUSABLE ELEMENTS */
 .center {
   text-align: center;
@@ -180,6 +191,13 @@ input:active::placeholder {
   font-size: 1.3em;
   background: rgba(0, 0, 0, 0);
 }
+.search i[ng-click]:hover {
+  color: #ffc107;
+}
+.question-button {
+  flex: 1 0 200px;
+  margin-right: 20px;
+}
 .main-table {
   width: 65vw;
 }
@@ -190,19 +208,35 @@ input:active::placeholder {
   max-height: 67vh;
   border-bottom: solid 1px #cfd8dc;
 }
+/*.main-table th,
+.main-table td {
+    &:nth-of-type(1) {
+        width: 50px;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+        width: 180px;
+    }
+    &:nth-of-type(4),
+    {
+        width: 330px;
+    }
+}*/
 .main-table th:nth-of-type(1),
 .main-table td:nth-of-type(1) {
-  width: 50px;
+  width: 10%;
 }
 .main-table th:nth-of-type(2),
 .main-table td:nth-of-type(2),
 .main-table th:nth-of-type(3),
-.main-table td:nth-of-type(3) {
-  width: 180px;
+.main-table td:nth-of-type(3),
+.main-table th:nth-of-type(5),
+.main-table td:nth-of-type(5) {
+  width: 20%;
 }
 .main-table th:nth-of-type(4),
 .main-table td:nth-of-type(4) {
-  width: 330px;
+  width: 30%;
 }
 .main-table tr {
   border-bottom: 1px solid rgba(207, 216, 220, 0.2);
