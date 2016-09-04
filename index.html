@@ -35,7 +35,8 @@
             <i class="material-icons">search</i>
             <input ng-if="!questionMode" type="text" placeholder="Search by command name, keyword, or phrase" ng-model="filter.search">
             <input ng-if="questionMode" type="text" placeholder="Search by question or multiple keywords (space separated)" ng-model="filter.question">
-            <button ng-if="questionMode" class="question-button" ng-click="getKeywords(test)">Show Matches</button>
+            <button ng-if="questionMode" ng-hide="reset" class="question-button" ng-click="getKeywords(filter.question)">Show Matches</button>
+            <button ng-if="questionMode" ng-hide="!reset" class="question-button" ng-click="resetQuestion()">Reset Search</button>
         </div>
 
         <!-- LIST MODE TABLE -->
@@ -82,8 +83,12 @@
           <table class="main-table" ng-if="questionMode">
             <thead>
                 <tr class="head">
-                    <th>
+                    <th ng-click="filter.order = 'score'; filter.reverseOrder=!filter.reverseOrder">
                         Score
+                        <i class="thead-icons" ng-show="filter.order==='score'">
+                        <span ng-if="!filter.reverseOrder">arrow_downward</span>
+                        <span ng-if="filter.reverseOrder">arrow_upward</span>
+                        </i>
                     </th>
 
                     <th ng-click="filter.order = 'name'; filter.reverseOrder=!filter.reverseOrder">
@@ -107,7 +112,7 @@
                 </tr>
             </thead>
 
-            <tr ng-repeat="command in commands | toArray:false | filter:filter.search | filter:{fav:filter.favOption} | filter:catFilter | orderBy:filter.order:filter.reverseOrder" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
+            <tr ng-repeat="command in commands | toArray:false | filter:questionFilter | orderBy:filter.order:filter.reverseOrder" ng-click="displayDesc(command.name)" ng-class="{active:activeCommand == command.name}">
                 <td>{{command.score || '-'}}</td>
                 <td>{{command.name}}</td>
                 <td>{{command.type}}</td>

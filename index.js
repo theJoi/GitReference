@@ -33,6 +33,7 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
         catFilters: [],
         keywords: []
     };
+    $scope.reset = false;
 
 
 
@@ -119,8 +120,12 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
 
     /* Get keywords for use with question mode filter */
     $scope.getKeywords = function (keywordStr) {
-        if(keywordStr == undefined){
+        if(keywordStr === undefined){
             alert('Please enter a question first');
+            return;
+        }
+        if(keywordStr.length < 3){
+            alert('Please enter at least 3 characters before searching.');
             return;
         }
         $scope.filter.keywords = keywordStr.split(' ');
@@ -129,17 +134,59 @@ app.controller("GitRefController", function ($scope, $http, $sce, $interval) {
             $scope.filter.keywords[key] = value.toLowerCase();
         });
         console.log($scope.filter.keywords);
+        $scope.reset = true;
     };
+
 
     /* Calculate relevance score */
     $scope.relevanceCalc = function (command) {
-        var rScore;
+        if($scope.filter.keywords.length < 1){
+            return;
+        }
+        var rScore = 0;
+        angular.forEach($scope.filter.keywords, function (keyword){
+            if(command.name == keyword){
+                rScore += 50;
+            }
+            if(command.keywords.indexOf(keyword) > -1){
+                rScore += 25;
+            }
+            if(command.short.includes(keyword)){
+                var re = new RegExp(keyword,"g");
+                var count = (command.short.match(re) || []).length;
+                console.log(count);
+                rScore += (10 * count);
+            }
+            if(command.long.includes(keyword)){
+                var re = new RegExp(keyword,"g");
+                var count = (command.long.match(re) || []).length;
+                console.log(count);
+                rScore += (5 * count);
+            }
+        });
+        return rScore;
     };
 
 
     /* Custom filter for question mode */
     $scope.questionFilter = function (command) {
-        angular.forEach($scope.filter.keywords);
+        var score = $scope.relevanceCalc(command);
+        command.score = score;
+        if(score > 0 || score === undefined){
+            return command;
+        }
+        return;
+    };
+
+
+    /* Resets question mode */
+    $scope.resetQuestion = function () {
+        angular.forEach($scope.commands, function(command){
+            command.score = undefined;
+        });
+        $scope.filter.keywords = [];
+        $scope.reset = false;
+
     };
 
 
